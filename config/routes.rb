@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   root "job_apps#index"
 
   resources :job_apps, only: [ :index, :show, :new, :create ]
+
+  resources :users, only: [ :new, :create, :edit ]
+
+  resources :resumes, only: [ :create ]
 end

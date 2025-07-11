@@ -1,1 +1,8 @@
-Hello world
+<h1> All Job Applications </h1>
+
+<% unless @user %>
+    <h2> Create User </h1>
+    <%= link_to "Create user", new_user_path, class: "button" %>
+<% end %>
+<br>
+<%= link_to "Start new job app", new_job_app_path, class: "button" %>
