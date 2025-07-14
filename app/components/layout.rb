@@ -9,6 +9,7 @@ class Components::Layout < Components::Base
     html do
       head do
         title { @title || "Job App Helper" }
+        stylesheet_link_tag(:app, "data-turbo-track": "reload")
       end
 
       body { yield }

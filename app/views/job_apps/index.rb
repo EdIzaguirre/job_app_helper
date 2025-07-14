@@ -7,7 +7,8 @@ class Views::JobApps::Index < Views::Base
 
   def view_template
     Layout(title: "Job Apps") do
-      h1 { "All Job Applications" }
+      # h1 { "All Job Applications" }
+      h1(class: "text-3xl font-bold underline") { "All Job Applications" }
       unless @user
         h2 { "Create User" }
         a(href: new_user_path) { "Create User" }
@@ -15,18 +16,20 @@ class Views::JobApps::Index < Views::Base
         h2 { "Current User: #{@user.name}" }
       end
 
-      table do
-        tr do
-          th { "Company Name" }
-          th { "Title" }
-          th { "Description" }
+      Table do
+        TableHeader do
+          TableRow do
+          TableHead  { "Company Name" }
+          TableHead { "Title" }
+          TableHead { "Description" }
+          end
         end
 
         for app in @user.job_apps do
-          tr do
-            td { app.company_name }
-            td { app.title }
-            td { app.description }
+          TableRow do
+            TableCell { app.company_name }
+            TableCell { app.title }
+            TableCell { app.description }
           end
         end
       end

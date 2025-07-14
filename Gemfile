@@ -64,3 +64,9 @@ group :test do
 end
 
 gem "phlex-rails", "~> 2.3"
+
+gem "ruby_ui", "~> 1.0", group: :development, require: false
+
+gem "tailwind_merge", "~> 1.3"
+gem "tailwindcss-ruby"
+gem "tailwindcss-rails"
