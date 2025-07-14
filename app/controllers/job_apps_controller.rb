@@ -1,10 +1,12 @@
 class JobAppsController < ApplicationController
   before_action :grab_user
   def index
+    render Views::JobApps::Index.new(user: @user)
   end
 
   def new
     @job_app = @user.job_apps.new
+    render Views::JobApps::New.new(job_app: @job_app)
   end
 
   def create
