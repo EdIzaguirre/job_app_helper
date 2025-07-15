@@ -24,8 +24,10 @@ class Views::JobApps::New < Views::Base
           form.textarea :description, class: "input"
         end
 
-        form.submit(class: "btn btn-primary")
+        form.submit(class: "btn btn-soft btn-primary my-4")
       end
+
+      link_to "Back to Job Apps", job_apps_path, class: "btn btn-soft btn-secondary"
     end
   end
 end
