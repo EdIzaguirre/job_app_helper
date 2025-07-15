@@ -6,35 +6,33 @@ class Views::JobApps::Index < Views::Base
   end
 
   def view_template
-    Layout(title: "Job Apps") do
-      # h1 { "All Job Applications" }
-      h1(class: "text-3xl font-bold underline") { "All Job Applications" }
+    Components::Layout(title: "Job Apps") do
+      h1(class: "text-3xl font-bold my-4") { "All Job Applications" }
       unless @user
         h2 { "Create User" }
-        a(href: new_user_path) { "Create User" }
+        a(href: new_user_path, class: "btn") { "Create User" }
       else
         h2 { "Current User: #{@user.name}" }
       end
-
-      Table do
-        TableHeader do
-          TableRow do
-          TableHead  { "Company Name" }
-          TableHead { "Title" }
-          TableHead { "Description" }
+      div(class: "overflow-x-auto rounded-box border border-base-content/5 bg-base-100 my-4") do
+        table(class: "table table-zebra") do
+          tr do
+            th { "Company Name" }
+            th { "Title" }
+            th { "Description" }
           end
-        end
 
-        for app in @user.job_apps do
-          TableRow do
-            TableCell { app.company_name }
-            TableCell { app.title }
-            TableCell { app.description }
+          for app in @user.job_apps do
+            tr do
+              td { app.company_name }
+              td { app.title }
+              td { app.description }
+            end
           end
         end
       end
       br
-      a(href: new_job_app_path) { "Start new job app" }
+      a(href: new_job_app_path, class: "btn btn-primary") { "Start new job app" }
     end
   end
 end

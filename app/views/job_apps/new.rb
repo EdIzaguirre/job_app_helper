@@ -7,24 +7,24 @@ class Views::JobApps::New < Views::Base
 
   def view_template
     Layout(title: "Job Apps") do
-      h1 { "Create a new job app" }
+      h1(class: "text-3xl font-bold my-4") { "Create a new job app" }
       form_with model: @job_app do |form|
-        div do
-          form.label :company_name
-          form.text_field :company_name
+        fieldset(class: "fieldset") do
+          form.label :company_name, class: "label"
+          form.text_field :company_name, class: "input"
         end
 
-        div do
-          form.label :title
-          form.textarea :title
+        fieldset(class: "fieldset") do
+          form.label :title, class: "label"
+          form.text_field :title, class: "input"
         end
 
-        div do
-          form.label :description
-          form.textarea :description
+        fieldset(class: "fieldset") do
+          form.label :description, class: "label"
+          form.textarea :description, class: "input"
         end
 
-        form.submit
+        form.submit(class: "btn btn-primary")
       end
     end
   end
