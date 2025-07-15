@@ -14,8 +14,28 @@ class JobAppsController < ApplicationController
     if @job_app.save
       redirect_to root_path, notice: "Job Application was successfully created."
     else
-      render :new
+      render Views::JobApps::New.new(job_app: @job_app)
     end
+  end
+
+  def edit
+    @job_app = @user.job_apps.find(params[:id])
+    render Views::JobApps::Edit.new(job_app: @job_app)
+  end
+
+  def update
+    @job_app = @user.job_apps.find(params[:id])
+    if @job_app.update(job_params)
+      redirect_to root_path, notice: "Job Application updated successfully"
+    else
+      render Views::JobApps::Edit.new(job_app: @job_app), status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @job_app = @user.job_apps.find(params[:id])
+    @job_app.destroy
+    redirect_to root_path, notice: "Job Application was successfully deleted."
   end
 
   def show

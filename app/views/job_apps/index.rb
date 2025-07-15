@@ -10,9 +10,10 @@ class Views::JobApps::Index < Views::Base
       h1(class: "text-3xl font-bold my-4") { "All Job Applications" }
       unless @user
         h2 { "Create User" }
-        a(href: new_user_path, class: "btn") { "Create User" }
+        link_to(new_user_path, class: "btn") { "Create User" }
       else
         h2 { "Current User: #{@user.name}" }
+        link_to(edit_user_path(@user), class: "btn") { "Edit User" }
       end
       div(class: "overflow-x-auto rounded-box border border-base-content/5 bg-base-100 my-4") do
         table(class: "table table-zebra") do
@@ -20,6 +21,7 @@ class Views::JobApps::Index < Views::Base
             th { "Company Name" }
             th { "Title" }
             th { "Description" }
+            th { "" }
           end
 
           for app in @user.job_apps do
@@ -27,12 +29,13 @@ class Views::JobApps::Index < Views::Base
               td { app.company_name }
               td { app.title }
               td { app.description }
+              td { link_to(edit_job_app_path(app), class: "btn btn-soft btn-primary") { "Edit" } }
             end
           end
         end
       end
       br
-      a(href: new_job_app_path, class: "btn btn-soft btn-primary") { "Start new job app" }
+      link_to(new_job_app_path, class: "btn btn-soft btn-primary") { "Start new job app" }
     end
   end
 end
