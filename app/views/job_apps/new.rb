@@ -8,6 +8,7 @@ class Views::JobApps::New < Views::Base
   def view_template
     Layout(title: "Job Apps") do
       h1(class: "text-3xl font-bold my-4") { "Create a new job app" }
+      link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       form_with model: @job_app do |form|
         fieldset(class: "fieldset") do
           form.label :company_name, class: "label"

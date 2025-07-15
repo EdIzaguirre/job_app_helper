@@ -8,6 +8,7 @@ class Views::Users::Edit < Views::Base
   def view_template
     Layout(title: "Edit Users") do
       h1(class: "text-3xl font-bold my-4") { "Edit user" }
+      link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       form_with model: @user do |form|
         fieldset(class: "fieldset") do
           form.label :name, class: "label"
@@ -26,7 +27,6 @@ class Views::Users::Edit < Views::Base
 
         form.submit(class: "btn btn-soft btn-primary my-1")
       end
-      link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       button_to(user_path(@user), method: :delete, class: "btn btn-soft btn-error my-1", data: { confirm: "Are you sure you want to delete this user?" }) { "Delete User" }
     end
   end
