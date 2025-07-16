@@ -6,7 +6,7 @@ class JobAppsController < ApplicationController
 
   def new
     @job_app = @user.job_apps.new
-    render Views::JobApps::New.new(job_app: @job_app)
+    render Views::JobApps::New.new(user: @user, job_app: @job_app)
   end
 
   def create
@@ -14,13 +14,13 @@ class JobAppsController < ApplicationController
     if @job_app.save
       redirect_to root_path, notice: "Job Application was successfully created."
     else
-      render Views::JobApps::New.new(job_app: @job_app)
+      render Views::JobApps::New.new(user: @user, job_app: @job_app)
     end
   end
 
   def edit
     @job_app = @user.job_apps.find(params[:id])
-    render Views::JobApps::Edit.new(job_app: @job_app)
+    render Views::JobApps::Edit.new(user: @user, job_app: @job_app)
   end
 
   def update

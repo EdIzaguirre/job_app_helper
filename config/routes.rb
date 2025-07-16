@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "job_apps#index"
 
-  resources :job_apps, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
-
-  resources :users, only: [ :new, :create, :edit, :update, :destroy ]
-
-  resources :resumes, only: [ :create ]
+  resources :users, shallow: true do
+    resources :job_apps do
+      resources :resumes
+    end
+  end
 end

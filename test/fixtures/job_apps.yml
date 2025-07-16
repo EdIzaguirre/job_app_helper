@@ -4,8 +4,14 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  company_name: AcmeCorp
+  title: Software Engineer
+  description: Developing cutting-edge software solutions.
+  user: one
+
+two:
+  company_name: Jupiter Systems
+  title: Data Scientist
+  description: Analyzing data to drive business decisions.
+  user: one

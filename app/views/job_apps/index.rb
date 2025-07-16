@@ -35,7 +35,7 @@ class Views::JobApps::Index < Views::Base
         end
       end
       br
-      link_to(new_job_app_path, class: "btn btn-soft btn-primary") { "Start new job app" }
+      link_to(new_user_job_app_path(@user), class: "btn btn-soft btn-primary") { "Start new job app" }
     end
   end
 end

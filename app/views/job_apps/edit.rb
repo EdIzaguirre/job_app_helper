@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Views::JobApps::Edit < Views::Base
-  def initialize(job_app:)
+  def initialize(user:, job_app:)
+    @user = user
     @job_app = job_app
   end
 
