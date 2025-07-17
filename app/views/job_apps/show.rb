@@ -9,8 +9,11 @@ class Views::JobApps::Show < Views::Base
     Layout(title: "Show Job App") do
       h1(class: "text-3xl font-bold my-4") { "Show job app" }
       link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
+      h2 {"Company Name"}
       p {@job_app.company_name} 
+      h2 {"Job Title"}
       p {@job_app.title} 
+      h2 {"Job Description"}
       p {@job_app.description} 
       
       link_to(edit_job_app_path(@job_app), class: "btn btn-soft btn-primary") { "Edit" } 
