@@ -29,7 +29,7 @@ class Views::JobApps::Index < Views::Base
               td { app.company_name }
               td { app.title }
               td { app.description }
-              td { link_to(edit_job_app_path(app), class: "btn btn-soft btn-primary") { "Edit" } }
+              td { link_to(job_app_path(app), class: "btn btn-soft btn-primary") { "Show" } }
             end
           end
         end

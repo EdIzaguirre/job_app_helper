@@ -20,7 +20,7 @@ class JobAppsController < ApplicationController
 
   def edit
     @job_app = @user.job_apps.find(params[:id])
-    render Views::JobApps::Edit.new(user: @user, job_app: @job_app)
+    render Views::JobApps::Edit.new(job_app: @job_app)
   end
 
   def update
@@ -39,6 +39,8 @@ class JobAppsController < ApplicationController
   end
 
   def show
+   @job_app = @user.job_apps.find(params[:id])
+   render Views::JobApps::Show.new(job_app: @job_app)
   end
 
   private
