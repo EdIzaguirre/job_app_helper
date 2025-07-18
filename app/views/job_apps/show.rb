@@ -7,15 +7,16 @@ class Views::JobApps::Show < Views::Base
 
   def view_template
     Layout(title: "Show Job App") do
-      h1(class: "text-3xl font-bold my-4") { "Show job app" }
+      render Components::H1Component.new(text: "Show job app")
       link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
-      h2 {"Company Name"}
+      render Components::H2Component.new(text: "Company Name")
       p {@job_app.company_name} 
-      h2 {"Job Title"}
+      br
+      render Components::H2Component.new(text: "Job Title")
       p {@job_app.title} 
-      h2 {"Job Description"}
+      br
+      render Components::H2Component.new(text: "Job Description")
       p {@job_app.description} 
-      
       link_to(edit_job_app_path(@job_app), class: "btn btn-soft btn-primary") { "Edit" } 
     end
   end

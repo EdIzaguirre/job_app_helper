@@ -7,12 +7,12 @@ class Views::JobApps::Index < Views::Base
 
   def view_template
     Components::Layout(title: "Job Apps") do
-      h1(class: "text-3xl font-bold my-4") { "All Job Applications" }
+      render Components::H1Component.new(text: "All Job Apps")
       unless @user
-        h2 { "Create User" }
+        render Components::H2Component.new(text: "Create User")
         link_to(new_user_path, class: "btn") { "Create User" }
       else
-        h2 { "Current User: #{@user.name}" }
+        render Components::H2Component.new(text: "Current User: #{@user.name}")
         link_to(edit_user_path(@user), class: "btn") { "Edit User" }
       end
       div(class: "overflow-x-auto rounded-box border border-base-content/5 bg-base-100 my-4") do

@@ -7,7 +7,7 @@ class Views::Users::New < Views::Base
 
   def view_template
     Layout(title: "Create User") do
-      h1(class: "text-3xl font-bold my-4") { "Create user" }
+      render Components::H1Component.new(text: "Create User")
       link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       form_with model: @user do |form|
         fieldset(class: "fieldset") do

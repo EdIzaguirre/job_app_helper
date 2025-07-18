@@ -7,7 +7,7 @@ class Views::Users::Edit < Views::Base
 
   def view_template
     Layout(title: "Edit Users") do
-      h1(class: "text-3xl font-bold my-4") { "Edit user" }
+      render Components::H1Component.new(text: "Edit User")
       link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       form_with model: @user do |form|
         fieldset(class: "fieldset") do

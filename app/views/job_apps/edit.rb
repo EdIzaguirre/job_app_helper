@@ -7,7 +7,7 @@ class Views::JobApps::Edit < Views::Base
 
   def view_template
     Layout(title: "Edit Job Apps") do
-      h1(class: "text-3xl font-bold my-4") { "Edit job app" }
+      render Components::H1Component.new(text: "Edit job app") 
       link_to(root_path, class: "btn btn-soft btn-warning my-1") { "Cancel" }
       form_with model: @job_app do |form|
         fieldset(class: "fieldset") do
