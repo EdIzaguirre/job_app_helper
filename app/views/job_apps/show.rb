@@ -17,6 +17,7 @@ class Views::JobApps::Show < Views::Base
       br
       render Components::H2Component.new(text: "Job Description")
       p {@job_app.description} 
+      br
       link_to(edit_job_app_path(@job_app), class: "btn btn-soft btn-primary") { "Edit" } 
     end
   end
